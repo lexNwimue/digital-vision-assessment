@@ -31,19 +31,11 @@ export class UserService {
     return result;
   }
 
-  async findByEmail(email: string) {
-    return this.prisma.user.findUnique({ where: { email } });
-  }
-
   async findByFilter(filter: Prisma.UserWhereInput) {
     return this.prisma.user.findFirst({ where: filter });
   }
 
   async findByIdOrThrow(id: number) {
     return this.prisma.user.findFirstOrThrow({ where: { id } });
-  }
-
-  async findByBiometricKey(biometricKey: string) {
-    return this.prisma.user.findUnique({ where: { biometricKey } });
   }
 }

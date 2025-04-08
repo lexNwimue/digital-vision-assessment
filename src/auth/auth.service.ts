@@ -36,7 +36,7 @@ export class AuthService {
     const filter: Prisma.UserWhereInput = {
       ...((dto as LoginInput).email && { email: (dto as LoginInput).email }),
       ...((dto as BiometricLoginInput).biometricKey && {
-        email: (dto as BiometricLoginInput).biometricKey,
+        biometricKey: (dto as BiometricLoginInput).biometricKey,
       }),
     };
 
@@ -45,18 +45,16 @@ export class AuthService {
     if (!user)
       throw new NotFoundException(null, 'Invalid password or user not found ');
 
-    if ((dto as BiometricLoginInput).biometricKey) {
+    if ((dto as BiometricLoginInput).biometricKey)
       return this._generateAndReturnToken(user.id);
-    }
-    {
-      const isPasswordValid = await compareHash(
-        (dto as LoginInput).password,
-        user.password,
-      );
 
-      if (!isPasswordValid)
-        throw new NotFoundException(null, 'Invalid password or user not found');
-      return this._generateAndReturnToken(user.id);
-    }
+    const isPasswordValid = await compareHash(
+      (dto as LoginInput).password,
+      user.password,
+    );
+
+    if (!isPasswordValid)
+      throw new NotFoundException(null, 'Invalid password or user not found');
+    return this._generateAndReturnToken(user.id);
   }
 }
