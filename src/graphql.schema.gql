@@ -1,0 +1,32 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type TokenOutput {
+  accessToken: String!
+}
+
+type Query {
+  hello: String!
+}
+
+type Mutation {
+  register(register: RegisterInput!): TokenOutput!
+  login(login: LoginInput!): TokenOutput!
+  biometricLogin(biometricLogin: BiometricLoginInput!): TokenOutput!
+}
+
+input RegisterInput {
+  email: String!
+  password: String!
+  biometricKey: String
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input BiometricLoginInput {
+  biometricKey: String!
+}
