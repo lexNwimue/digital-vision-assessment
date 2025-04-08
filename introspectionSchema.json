@@ -1,0 +1,30 @@
+{
+  "__validationErrors": [],
+  "_queryType": "Query",
+  "_mutationType": "Mutation",
+  "_subscriptionType": null,
+  "_directives": ["@include", "@skip", "@deprecated", "@specifiedBy", "@oneOf"],
+  "_typeMap": {
+    "TokenOutput": "TokenOutput",
+    "String": "String",
+    "ProfileOutput": "ProfileOutput",
+    "Int": "Int",
+    "DateTime": "DateTime",
+    "Query": "Query",
+    "Mutation": "Mutation",
+    "RegisterInput": "RegisterInput",
+    "LoginInput": "LoginInput",
+    "BiometricLoginInput": "BiometricLoginInput",
+    "Boolean": "Boolean",
+    "__Schema": "__Schema",
+    "__Type": "__Type",
+    "__TypeKind": "__TypeKind",
+    "__Field": "__Field",
+    "__InputValue": "__InputValue",
+    "__EnumValue": "__EnumValue",
+    "__Directive": "__Directive",
+    "__DirectiveLocation": "__DirectiveLocation"
+  },
+  "_subTypeMap": {},
+  "_implementationsMap": {}
+}
