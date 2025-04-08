@@ -15,7 +15,8 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
   async register(dto: RegisterInput) {
-    return this.userService.createUser(dto);
+    const user = await this.userService.createUser(dto);
+    return this._generateAndReturnToken(user.id);
   }
 
   async login(dto: LoginInput): Promise<TokenOutput> {

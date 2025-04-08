@@ -10,7 +10,7 @@ export class AuthResolver {
   constructor(private readonly authService: AuthService) {}
 
   @Mutation(() => TokenOutput)
-  async register(@Args('register') dto: RegisterInput) {
+  async register(@Args('register') dto: RegisterInput): Promise<TokenOutput> {
     return this.authService.register(dto);
   }
 

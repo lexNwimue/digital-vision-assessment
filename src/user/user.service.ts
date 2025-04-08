@@ -39,6 +39,10 @@ export class UserService {
     return this.prisma.user.findFirst({ where: filter });
   }
 
+  async findByIdOrThrow(id: number) {
+    return this.prisma.user.findFirstOrThrow({ where: { id } });
+  }
+
   async findByBiometricKey(biometricKey: string) {
     return this.prisma.user.findUnique({ where: { biometricKey } });
   }
